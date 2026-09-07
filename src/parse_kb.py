@@ -55,6 +55,8 @@ K_METEO = re.compile(
     r"\s+波\s+(?P<wave>\d+)cm"
 )
 PAYOUT_TYPES = ("単勝", "複勝", "２連単", "２連複", "拡連複", "３連単", "３連複")
+# 組番 + 払戻金（+ 人気）。1行に複数口あるので finditer で使う
+PAYOUT_ROW = re.compile(r"([\d\-=]+)\s+(\d+)(?:\s+人気\s+(\d+))?")
 
 
 def parse_k_file(path: Path, date: str) -> tuple[list[dict], list[dict]]:
@@ -137,21 +139,24 @@ def parse_k_file(path: Path, date: str) -> tuple[list[dict], list[dict]]:
                 s = s[len(typ):].strip()
             elif cur_type is None or not s:
                 continue
-            # "1-5-6     3800  人気    12" / "1          100" / 続き行 "5-6 1080 人気 11"
-            pm = re.match(r"^([\d\-=]+)\s+(\d+)(?:\s+人気\s+(\d+))?", s)
-            if pm and cur_type:
-                payouts.append(
-                    {
-                        "date": date,
-                        "jcd": jcd,
-                        "race_no": race_no,
-                        "bet_type": cur_type,
-                        "combo": pm.group(1),
-                        "amount": int(pm.group(2)),
-                        "ninki": inum(pm.group(3) or ""),
-                    }
-                )
-            elif not pm:
+            # "1-5-6     3800  人気    12" / 続き行 "5-6 1080 人気 11"
+            # 複勝は**1行に2口**入る: "複勝     4          430  2          300"
+            # （2着以内の2艇が的中）。finditer で行内の全ペアを拾う。
+            ms = [m for m in PAYOUT_ROW.finditer(s)]
+            if ms and ms[0].start() == 0 and cur_type:
+                for pm in ms:
+                    payouts.append(
+                        {
+                            "date": date,
+                            "jcd": jcd,
+                            "race_no": race_no,
+                            "bet_type": cur_type,
+                            "combo": pm.group(1),
+                            "amount": int(pm.group(2)),
+                            "ninki": inum(pm.group(3) or ""),
+                        }
+                    )
+            else:
                 cur_type = None  # 特払い・不成立などは券種を閉じる
     return results, payouts
 

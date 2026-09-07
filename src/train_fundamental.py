@@ -15,6 +15,8 @@ import numpy as np
 import polars as pl
 from sklearn.ensemble import HistGradientBoostingClassifier
 
+from holdout import HOLDOUT_START, walk_forward
+
 ROOT = Path(__file__).resolve().parent.parent
 
 FEATURES = [
@@ -118,8 +120,13 @@ def main() -> None:
     pred = pred.with_columns(pl.col("vb_win_rate").fill_null(1 / 6))
     pred = normalize(pred, "vb_win_rate", "p_naive")
 
-    ll_f = race_logloss(pred, "p_fund").sort(["date", "jcd", "race_no"])
-    ll_n = race_logloss(pred, "p_naive").sort(["date", "jcd", "race_no"])
+    # 予測は全期間ぶん残す（開封時に必要）。**評価だけ**を walk-forward 側に限る。
+    # 2026-09-07 以前は全期間で G1 を報告していた → UNSEAL_LOG.md に記録済み。
+    ev = walk_forward(pred)
+    print(f"\nG1 評価は封印側を除外: {HOLDOUT_START} より前の {ev['date'].n_unique()}日")
+
+    ll_f = race_logloss(ev, "p_fund").sort(["date", "jcd", "race_no"])
+    ll_n = race_logloss(ev, "p_naive").sort(["date", "jcd", "race_no"])
     j = ll_f.join(ll_n, on=["date", "jcd", "race_no"], suffix="_naive")
     a, b = j["ll"].to_numpy(), j["ll_naive"].to_numpy()
     diff, ci = bootstrap_diff(a, b)

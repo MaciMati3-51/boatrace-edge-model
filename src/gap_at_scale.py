@@ -36,6 +36,7 @@ import argparse
 import numpy as np
 import polars as pl
 
+from holdout import HOLDOUT_START, describe, unseal, walk_forward
 from train_fundamental import ROOT
 
 KEY = ["date", "jcd", "race_no"]
@@ -156,10 +157,23 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--by-year", action="store_true", help="年別の内訳も出す")
     ap.add_argument("--decompose", action="store_true", help="板のあるレースで差の内訳を出す")
+    ap.add_argument(
+        "--unseal",
+        metavar="理由",
+        default="",
+        help=f"封印側（{HOLDOUT_START}〜）も含めて集計する。理由が UNSEAL_LOG.md に残る",
+    )
     args = ap.parse_args()
 
     fund = pl.read_parquet(ROOT / "data" / "preds" / "fundamental_wf.parquet")
     mkt = pl.read_parquet(ROOT / "data" / "parsed" / "market_payout.parquet")
+
+    describe(fund)
+    if args.unseal:
+        unseal(args.unseal, __file__)
+    else:
+        fund, mkt = walk_forward(fund), walk_forward(mkt)
+        print(f"→ 封印側を除外して集計する（{HOLDOUT_START} より前だけ）")
 
     # 6艇そろい・勝者1艇のレースに限る
     ok = (

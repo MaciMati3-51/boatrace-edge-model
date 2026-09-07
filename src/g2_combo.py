@@ -27,6 +27,8 @@ a=0,b=1 で市場を厳密再現するので、合成が市場を下回ること
 実行: uv run --with scipy python src/g2_combo.py
 """
 
+import argparse
+
 import numpy as np
 import polars as pl
 
@@ -83,6 +85,14 @@ def cv_clogit(X: np.ndarray, y: np.ndarray, w0: np.ndarray):
 
 
 def main() -> None:
+    ap = argparse.ArgumentParser()
+    ap.add_argument(
+        "--stagewise",
+        action="store_true",
+        help="PL展開の代わりに stagewise_wf.parquet の段階条件付き確率を使う",
+    )
+    args = ap.parse_args()
+
     parsed = ROOT / "data" / "parsed"
     odds = pl.read_parquet(parsed / "odds3t.parquet")
     mkt = pl.read_parquet(parsed / "market_payout.parquet")  # 返還・同着 除外済み
@@ -108,6 +118,10 @@ def main() -> None:
         .pipe(walk_forward)  # 板は 2023年だけなので実質素通しだが、明示しておく
         .sort(KEY)
     )
+    stage = None
+    if args.stagewise:
+        stage = pl.read_parquet(parsed.parent / "preds" / "stagewise_wf.parquet")
+        races = races.join(stage.select(KEY), on=KEY).sort(KEY)
     print(f"封印境界 {HOLDOUT_START} — 板ありレースは全て walk-forward 側")
     print(f"対象レース: {races.height:,}  ({races['date'].min()}〜{races['date'].max()})")
     if races.height < 500:
@@ -123,12 +137,17 @@ def main() -> None:
     inv = (1 / o["odds"].to_numpy()).reshape(n, N_COMBO)
     q = inv / inv.sum(axis=1, keepdims=True)
 
-    # fundamental: PL で 120通りへ展開
+    # fundamental: PL または段階条件付きモデルで 120通りへ展開
     f = fund.join(races.select(KEY), on=KEY).sort(KEY + ["boat"])
     s = f["p_fund"].to_numpy().reshape(n, N_BOATS)
     s = s / s.sum(axis=1, keepdims=True)
-    sa, sb, sc = s[:, tri[:, 0]], s[:, tri[:, 1]], s[:, tri[:, 2]]
-    p = sa * (sb / (1 - sa)) * (sc / (1 - sa - sb))
+    if stage is None:
+        sa, sb, sc = s[:, tri[:, 0]], s[:, tri[:, 1]], s[:, tri[:, 2]]
+        p = sa * (sb / (1 - sa)) * (sc / (1 - sa - sb))
+        fundamental_name = "PL"
+    else:
+        p = stage.join(races.select(KEY), on=KEY).sort(KEY)["p_stage"].to_numpy()
+        fundamental_name = "段階条件付き"
 
     y = np.array([pos[c] for c in races["combo"].to_numpy()])
 
@@ -149,12 +168,12 @@ def main() -> None:
     print(f"\n===== 120通り空間 log-loss  races={n:,} =====")
     print(f"  market   (b=1固定)  : {ll_market.mean():.4f}")
     print(f"  market^b (power補正) : {ll_pow.mean():.4f}")
-    print(f"  fundamental 単体(PL) : {ll_fund.mean():.4f}")
+    print(f"  fundamental 単体({fundamental_name}) : {ll_fund.mean():.4f}")
     print(f"  combined             : {ll_comb.mean():.4f}")
 
     print("\n===== 判定（CI上限<0で合格）=====")
     w120 = verdict(ll_comb, ll_market, "combined", "market  ")
-    print("      ↑ G2 本体（120通り空間版・初実行）")
+    print("      ↑ G2 本体（120通り空間版）")
     d_net, w_net = verdict(ll_comb, ll_pow, "combined", "market^b"), None
     print("      ↑ power補正を差し引いた fundamental の正味の寄与。**ここが本質**")
     verdict(ll_pow, ll_market, "market^b", "market  ")
@@ -196,7 +215,7 @@ def main() -> None:
         print(f"    → 約 {need:,.0f}レース（今の点推定が真値なら）。{need / n:.1f}倍")
     else:
         print("    → 点推定が正（市場^b より悪い）。枚数を増やしても通らない")
-    print("    ※ これは今の PL fundamental での話。段階条件付きモデルで a が上がれば必要枚数は減る")
+    print(f"    ※ これは今の {fundamental_name} fundamental の点推定に基づく概算")
 
 
 if __name__ == "__main__":

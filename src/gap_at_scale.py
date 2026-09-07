@@ -80,7 +80,12 @@ def report(a: np.ndarray, b: np.ndarray, na: str, nb: str) -> None:
     print(f"      bootstrapCI[{bci[0]:+.4f}, {bci[1]:+.4f}]")
 
 
-def decompose(df: pl.DataFrame, s_f: np.ndarray, hit_tri: np.ndarray) -> None:
+def decompose(
+    df: pl.DataFrame,
+    s_f: np.ndarray,
+    hit_tri: np.ndarray,
+    realized_f: np.ndarray | None = None,
+) -> None:
     """板のあるレースで、120通り空間の差の内訳を見る。
 
     120通りの log-loss 差は2つの原因が混ざっている:
@@ -125,7 +130,11 @@ def decompose(df: pl.DataFrame, s_f: np.ndarray, hit_tri: np.ndarray) -> None:
     sb = s_f[i, hit_tri[i, 1]]
     sc = s_f[i, hit_tri[i, 2]]
     ll_f6 = -np.log(sa)
-    ll_f120 = -np.log(sa * (sb / (1 - sa)) * (sc / (1 - sa - sb)))
+    if realized_f is None:
+        realized_subset = sa * (sb / (1 - sa)) * (sc / (1 - sa - sb))
+    else:
+        realized_subset = realized_f[i]
+    ll_f120 = -np.log(np.clip(realized_subset, 1e-12, None))
     g6 = (ll_f6 - ll_m6).mean()
     g120 = (ll_f120 - ll_m120).mean()
     print(f"\n===== 差の分解（板のある {len(i):,}レース）=====")
@@ -158,6 +167,11 @@ def main() -> None:
     ap.add_argument("--by-year", action="store_true", help="年別の内訳も出す")
     ap.add_argument("--decompose", action="store_true", help="板のあるレースで差の内訳を出す")
     ap.add_argument(
+        "--stagewise",
+        action="store_true",
+        help="PL展開の代わりに stagewise_wf.parquet の段階条件付き確率を使う",
+    )
+    ap.add_argument(
         "--unseal",
         metavar="理由",
         default="",
@@ -184,10 +198,13 @@ def main() -> None:
     )
     fund = fund.join(ok, on=KEY).sort(KEY + ["boat"])
 
-    df = (
-        mkt.join(fund.select(KEY).unique(), on=KEY, how="inner")
-        .sort(KEY)
-    )
+    stage = None
+    available = fund.select(KEY).unique()
+    if args.stagewise:
+        stage = pl.read_parquet(ROOT / "data" / "preds" / "stagewise_wf.parquet")
+        stage = walk_forward(stage) if not args.unseal else stage
+        available = available.join(stage.select(KEY), on=KEY)
+    df = mkt.join(available, on=KEY, how="inner").sort(KEY)
     print(f"fundamental 予測あり: {fund.select(KEY).unique().height:,}レース")
     print(f"払戻由来 q あり     : {mkt.height:,}レース")
     print(f"突合                : {df.height:,}レース")
@@ -217,13 +234,20 @@ def main() -> None:
     p_f = realized_pl(s_f)
     p_n = realized_pl(s_n)
 
+    pfull = None
+    if stage is not None:
+        stage = stage.join(df.select(KEY), on=KEY).sort(KEY)
+        pfull = stage["p_stage"].to_numpy()
+        p_f = pfull[np.arange(n), hit_idx]
+
     ll_m = -np.log(np.clip(q, 1e-12, None))
     ll_f = -np.log(np.clip(p_f, 1e-12, None))
     ll_n = -np.log(np.clip(p_n, 1e-12, None))
 
     print(f"\n===== 3連単120通り空間の log-loss  races={n:,} =====")
     print(f"  市場（払戻由来 q）   : {ll_m.mean():.4f}")
-    print(f"  fundamental (PL展開) : {ll_f.mean():.4f}")
+    method = "段階条件付き" if args.stagewise else "PL展開"
+    print(f"  fundamental ({method}) : {ll_f.mean():.4f}")
     print(f"  素朴 (会場×枠, PL)   : {ll_n.mean():.4f}")
     print(f"  一様 (1/120)         : {np.log(120):.4f}")
 
@@ -243,13 +267,14 @@ def main() -> None:
             print(f"  {y}: {d.mean():+.4f} ±{1.96 * se:.4f}  ({m.sum():,}レース)")
 
     if args.decompose:
-        decompose(df, s_f, hit_tri)
+        decompose(df, s_f, hit_tri, p_f if args.stagewise else None)
 
     # ---- 回収率（オッズ非使用ルール） ----
     payout = df["o_3t"].to_numpy() * 100.0
-    pfull = np.empty((n, N_COMBO), dtype=np.float32)
-    for i in range(0, n, CHUNK):
-        pfull[i:i + CHUNK] = pl_prob(s_f[i:i + CHUNK], tri).astype(np.float32)
+    if pfull is None:
+        pfull = np.empty((n, N_COMBO), dtype=np.float32)
+        for i in range(0, n, CHUNK):
+            pfull[i:i + CHUNK] = pl_prob(s_f[i:i + CHUNK], tri).astype(np.float32)
     roi_topk(pfull, hit_idx, payout, [1, 2, 3, 5, 10, 20, 40, 120])
 
 

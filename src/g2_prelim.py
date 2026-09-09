@@ -39,9 +39,8 @@ import argparse
 import numpy as np
 import polars as pl
 from scipy.optimize import minimize
-from sklearn.ensemble import HistGradientBoostingClassifier
 
-from train_fundamental import CATEGORICAL, FEATURES, ROOT, normalize
+from train_fundamental import ROOT, model, race_matrix
 
 TRAIN_START, TRAIN_END = "20220701", "20230630"
 TEST_START, TEST_END = "20230701", "20230803"
@@ -62,17 +61,14 @@ def fit_fundamental(feat: pl.DataFrame) -> pl.DataFrame:
     if train.select(KEY).unique().height < 1000 or test.height == 0:
         raise SystemExit("学習データ不足。LZH の遡り取得が完了しているか確認せよ")
 
-    clf = HistGradientBoostingClassifier(
-        max_iter=300,
-        learning_rate=0.06,
-        max_leaf_nodes=31,
-        min_samples_leaf=50,
-        categorical_features=[FEATURES.index(c) for c in CATEGORICAL],
-        random_state=0,
-    )
-    clf.fit(train.select(FEATURES).to_numpy(), train["y_win"].to_numpy())
-    p = clf.predict_proba(test.select(FEATURES).to_numpy())[:, 1]
-    return normalize(test.with_columns(p_raw=pl.lit(pl.Series(p))), "p_raw", "p_fund")
+    # 2026-09-09: train_fundamental と同じレース単位6クラス softmax に揃えた。
+    # 旧「艇ごと二値→正規化」は枠1の resolution を潰す（train_fundamental の docstring）。
+    train, test = train.sort(KEY + ["boat"]), test.sort(KEY + ["boat"])
+    y = train["y_win"].to_numpy().astype(np.int8).reshape(-1, N_BOATS)
+    single = y.sum(axis=1) == 1
+    clf = model().fit(race_matrix(train)[single], y[single].argmax(axis=1))
+    p = clf.predict_proba(race_matrix(test)).reshape(-1)
+    return test.with_columns(p_fund=pl.Series(p))
 
 
 def market_prob(odds: pl.DataFrame) -> pl.DataFrame:

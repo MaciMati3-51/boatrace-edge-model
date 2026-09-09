@@ -8,10 +8,23 @@ README §5/§8 は「封印ホールドアウト=直近1年、開封は1回の�
 ## 境界
 
     HOLDOUT_START = "20250719"
+    HOLDOUT_END   = "20260718"
 
 決め方: 封印を宣言した時点（2026-09-07）のデータ末尾 20260718 から1年遡った日。
-**この日付は二度と動かさない。** 動かせば「良く出るほうを選ぶ」ができてしまい、
-封印の意味が消える。データが増えても境界は据え置き、増えた分は封印側に積む。
+**この2つの日付は二度と動かさない。** 動かせば「良く出るほうを選ぶ」ができてしまい、
+封印の意味が消える。
+
+### 上限日を後から明示した理由（2026-09-09）
+
+README §5 の定義は「封印ホールドアウト = 直近1年」。宣言時点のデータ末尾が 20260718
+なので、封印は最初から **20250719〜20260718 の1年** を指していた。ところがコードには
+上限が無く `sealed()` が 20250719 以降を全部返していたため、**宣言より後に集めた
+前向きデータまで封印側に呑み込まれていた**（手動2連単板 20260903〜09 の107レースが該当）。
+
+上限日 20260718 は新しい選択ではなく、宣言時に既に決まっていた値を書き下しただけ。
+封印集合は1レースも増減しない。20260718 より後は `prospective()`＝**前向き収集**で、
+自由に使ってよい（そもそも封印を宣言した時点で存在しなかったデータなので、
+「良く出るほうを選ぶ」余地が無い）。
 
 ## walk-forward 予測を封印側にも作ること自体は違反ではない
 
@@ -38,6 +51,7 @@ import polars as pl
 
 ROOT = Path(__file__).resolve().parent.parent
 HOLDOUT_START = "20250719"
+HOLDOUT_END = "20260718"  # 含む。封印宣言時（2026-09-07）のデータ末尾
 UNSEAL_LOG = ROOT / "UNSEAL_LOG.md"
 
 
@@ -47,16 +61,29 @@ def walk_forward(df: pl.DataFrame, date_col: str = "date") -> pl.DataFrame:
 
 
 def sealed(df: pl.DataFrame, date_col: str = "date") -> pl.DataFrame:
-    """封印側だけ返す。`unseal()` を通してから使うこと。"""
-    return df.filter(pl.col(date_col) >= HOLDOUT_START)
+    """封印側だけ返す（20250719〜20260718）。`unseal()` を通してから使うこと。"""
+    return df.filter(
+        (pl.col(date_col) >= HOLDOUT_START) & (pl.col(date_col) <= HOLDOUT_END)
+    )
+
+
+def prospective(df: pl.DataFrame, date_col: str = "date") -> pl.DataFrame:
+    """封印宣言より後に集めた前向きデータ（20260718 より後）。開封に当たらない。"""
+    return df.filter(pl.col(date_col) > HOLDOUT_END)
 
 
 def describe(df: pl.DataFrame, date_col: str = "date", key: list[str] | None = None) -> None:
     key = key or ["date", "jcd", "race_no"]
     u = df.select(key).unique()
     w = u.filter(pl.col(date_col) < HOLDOUT_START).height
-    s = u.filter(pl.col(date_col) >= HOLDOUT_START).height
-    print(f"封印境界 {HOLDOUT_START}: walk-forward {w:,}レース / 封印 {s:,}レース")
+    s = u.filter(
+        (pl.col(date_col) >= HOLDOUT_START) & (pl.col(date_col) <= HOLDOUT_END)
+    ).height
+    p = u.filter(pl.col(date_col) > HOLDOUT_END).height
+    print(
+        f"封印 {HOLDOUT_START}〜{HOLDOUT_END}: walk-forward {w:,}レース / "
+        f"封印 {s:,}レース / 前向き {p:,}レース"
+    )
 
 
 def unseal(reason: str, script: str) -> None:

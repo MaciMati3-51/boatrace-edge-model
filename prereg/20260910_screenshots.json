@@ -1,0 +1,62 @@
+[
+  {
+    "jcd": 1,
+    "race_no": 11,
+    "image": "picture/スクリーンショット 2026-09-10 195849.png",
+    "sha256": "027864411d103ddb4eefa0b23c54f3a36ab5fc0d5f6029b1aaf0851f650e7225",
+    "capture_time_filename": "195849",
+    "odds_updated_jst": "19:57",
+    "scheduled_deadline_jst": "20:07",
+    "method": "manual_visual_transcription"
+  },
+  {
+    "jcd": 1,
+    "race_no": 12,
+    "image": "picture/スクリーンショット 2026-09-10 195857.png",
+    "sha256": "b41ad6fcfc0673f20cc24f6efdfa80f96977d83be695a9082e378cab1704070a",
+    "capture_time_filename": "195857",
+    "odds_updated_jst": "19:57",
+    "scheduled_deadline_jst": "20:38",
+    "method": "manual_visual_transcription"
+  },
+  {
+    "jcd": 20,
+    "race_no": 11,
+    "image": "picture/スクリーンショット 2026-09-10 195915.png",
+    "sha256": "911e6178a73468113f8397d915b06241a3de7c44525c7d8cce135c33f46d62d5",
+    "capture_time_filename": "195915",
+    "odds_updated_jst": "19:57",
+    "scheduled_deadline_jst": "19:58",
+    "method": "manual_visual_transcription"
+  },
+  {
+    "jcd": 20,
+    "race_no": 12,
+    "image": "picture/スクリーンショット 2026-09-10 195922.png",
+    "sha256": "534d8cc354e7a575c20153b3da1d2a757061f760486fef50c0721067b5d3ded7",
+    "capture_time_filename": "195922",
+    "odds_updated_jst": "19:59",
+    "scheduled_deadline_jst": "20:30",
+    "method": "manual_visual_transcription"
+  },
+  {
+    "jcd": 24,
+    "race_no": 11,
+    "image": "picture/スクリーンショット 2026-09-10 195945.png",
+    "sha256": "e42f57351b3b0856a17f9a4d40c78c33ed301a2fcfa9120b20634393a1f51930",
+    "capture_time_filename": "195945",
+    "odds_updated_jst": "19:59",
+    "scheduled_deadline_jst": "20:16",
+    "method": "manual_visual_transcription"
+  },
+  {
+    "jcd": 24,
+    "race_no": 12,
+    "image": "picture/スクリーンショット 2026-09-10 195951.png",
+    "sha256": "6d515497b7fdc625d88189a8a4794e9b4a854181c899d30679fd9d672b998124",
+    "capture_time_filename": "195951",
+    "odds_updated_jst": "19:59",
+    "scheduled_deadline_jst": "20:45",
+    "method": "manual_visual_transcription"
+  }
+]

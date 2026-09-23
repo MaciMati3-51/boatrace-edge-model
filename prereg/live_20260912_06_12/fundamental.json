@@ -1,0 +1,7 @@
+{
+  "generated_at": "2026-09-12T08:02:27.209753+00:00",
+  "training_through": "20260909",
+  "input_sha256": "0939758e90787a305955b5e8f89b155a0621089a58506f27007b7945840328a5",
+  "model_sha256": "17442e4f5ce42b53e16dbbb8ce96c18d20b63ecd2500d69533644388a1b1d2e8",
+  "note": "Check generation time against deadline; odds not used in fundamental model."
+}

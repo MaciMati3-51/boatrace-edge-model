@@ -1,0 +1,155 @@
+{
+  "evaluated_at": "2026-09-12T08:20:07.505753+00:00",
+  "frozen_hashes_verified": true,
+  "actual": {
+    "date": "20260912",
+    "jcd": 6,
+    "race_no": 12,
+    "source_image": "picture/スクリーンショット 2026-09-12 171825.png",
+    "finish_order": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      4
+    ],
+    "racer_ids_by_finish": [
+      5066,
+      4066,
+      4068,
+      5091,
+      4269,
+      4654
+    ],
+    "kimarite": "逃げ",
+    "refunds": [],
+    "payout_per_100_jpy": {
+      "2t": {
+        "1-2": 230
+      },
+      "2f": {
+        "1-2": 200
+      }
+    },
+    "other_payouts_not_evaluated": {
+      "3t_1-2-3": 1240,
+      "3f_1-2-3": 730
+    },
+    "actual_course_by_boat": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "actual_st_by_boat": [
+      0.08,
+      0.12,
+      0.11,
+      0.12,
+      0.11,
+      0.12
+    ],
+    "result_weather": {
+      "wind_speed_mps": 3,
+      "wave_cm": 3,
+      "air_c": 25,
+      "water_c": 26,
+      "weather": "曇り"
+    }
+  },
+  "result_image_sha256": "7ce0fef5afdf71907dc406b4138981a7c6c668c4857b8235b0f36b885253df95",
+  "scores": {
+    "2t": {
+      "winning_combo": "1-2",
+      "probability_rank": 1,
+      "p_fundamental": 0.25581431914124625,
+      "p_market": 0.3092994885678684,
+      "p_final": 0.33422504001952924,
+      "fundamental_logloss": 1.3633034135258872,
+      "market_logloss": 1.1734452528072932,
+      "final_logloss": 1.0959407403746702,
+      "captured_odds": 2.4,
+      "settled_multiplier": 2.3,
+      "odds_change_fraction": -0.04166666666666674,
+      "captured_ev": 0.8021400960468702,
+      "final_probability_times_settled_multiplier": 0.7687175920449172
+    },
+    "2f": {
+      "winning_combo": "1-2",
+      "probability_rank": 1,
+      "p_fundamental": 0.2793295686142915,
+      "p_market": 0.13853854069151944,
+      "p_final": 0.24821813232835113,
+      "fundamental_logloss": 1.2753629447734558,
+      "market_logloss": 1.9766067199243202,
+      "final_logloss": 1.3934473535683911,
+      "captured_odds": 5.4,
+      "settled_multiplier": 2.0,
+      "odds_change_fraction": -0.6296296296296297,
+      "captured_ev": 1.3403779145730963,
+      "final_probability_times_settled_multiplier": 0.4964362646567022
+    }
+  },
+  "paper_tickets": [
+    {
+      "pool": "2t",
+      "combo": "1-3",
+      "stake_jpy": 100,
+      "return_jpy": 0,
+      "captured_odds": 11.0,
+      "p_final": 0.09624724099785677,
+      "captured_ev": 1.0587196509764245
+    },
+    {
+      "pool": "2t",
+      "combo": "1-6",
+      "stake_jpy": 100,
+      "return_jpy": 0,
+      "captured_odds": 12.1,
+      "p_final": 0.08373577666559294,
+      "captured_ev": 1.0132028976536744
+    },
+    {
+      "pool": "2f",
+      "combo": "1-2",
+      "stake_jpy": 100,
+      "return_jpy": 200,
+      "captured_odds": 5.4,
+      "p_final": 0.24821813232835113,
+      "captured_ev": 1.3403779145730963
+    },
+    {
+      "pool": "2f",
+      "combo": "1-5",
+      "stake_jpy": 100,
+      "return_jpy": 0,
+      "captured_odds": 11.1,
+      "p_final": 0.09443022848325851,
+      "captured_ev": 1.0481755361641694
+    }
+  ],
+  "totals": {
+    "2t": {
+      "stake_jpy": 200,
+      "return_jpy": 0,
+      "profit_jpy": -200,
+      "roi": 0.0
+    },
+    "2f": {
+      "stake_jpy": 200,
+      "return_jpy": 200,
+      "profit_jpy": 0,
+      "roi": 1.0
+    },
+    "combined": {
+      "stake_jpy": 400,
+      "return_jpy": 200,
+      "profit_jpy": -200,
+      "roi": 0.5
+    }
+  },
+  "notes": "No reforecast or retraining. Stakes follow frozen rule. Settled-odds EV is diagnostic only, not a retrospective selection rule."
+}

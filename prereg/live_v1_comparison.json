@@ -1,0 +1,109 @@
+{
+  "training": [
+    "20260719",
+    "20260820"
+  ],
+  "evaluation": [
+    "20260820",
+    "20260909"
+  ],
+  "training_end_inclusive": "20260819",
+  "train_races": 4224,
+  "test_races": 2717,
+  "rejected_races": 1165,
+  "features": [
+    "boat",
+    "jcd",
+    "class_ord",
+    "age",
+    "weight",
+    "nat_wr",
+    "nat_2r",
+    "loc_wr",
+    "loc_2r",
+    "motor_2r",
+    "boat_2r",
+    "hist_n",
+    "hist_win_rate",
+    "hist_top2_rate",
+    "hist_mean_st",
+    "hist_f_rate",
+    "vb_win_rate",
+    "exhibition_weight",
+    "adjustment_weight",
+    "tenji",
+    "tilt",
+    "exhibition_course",
+    "exhibition_st",
+    "wind_speed",
+    "wind_direction",
+    "wave_height",
+    "weather_code",
+    "air_temperature",
+    "water_temperature",
+    "tenji_rel",
+    "tenji_rank",
+    "exhibition_st_rel",
+    "exhibition_f",
+    "course_change"
+  ],
+  "backfilled_data_used": false,
+  "sealed_evaluation_used": false,
+  "early_stopping": true,
+  "comparison_status": "exploratory: early stopping enabled after diagnosing small-sample overfitting",
+  "baseline": {
+    "first_logloss": 1.253944887198054,
+    "exacta_logloss": 2.651209568504386,
+    "quinella_logloss": 2.0613591659178994,
+    "iterations": [
+      29,
+      56
+    ]
+  },
+  "preview": {
+    "first_logloss": 1.236536504583639,
+    "exacta_logloss": 2.6245949005184652,
+    "quinella_logloss": 2.0338253610527874,
+    "iterations": [
+      31,
+      73
+    ]
+  },
+  "preview_minus_baseline": {
+    "mean": [
+      -0.017408382614415987,
+      -0.026614667985919035,
+      -0.027533804865115988
+    ],
+    "day_bootstrap_95ci": [
+      [
+        -0.0282724913927194,
+        -0.007475874050476806
+      ],
+      [
+        -0.040875377198141404,
+        -0.013780724148006565
+      ],
+      [
+        -0.03703240337649451,
+        -0.017450940518860248
+      ]
+    ],
+    "order": [
+      "1着",
+      "2連単",
+      "2連複"
+    ],
+    "negative_is_better": true
+  },
+  "limitation": "Single historical split; equal training samples; not evidence of profitability or comparison with the larger historical production fit.",
+  "model_sha256": "17442e4f5ce42b53e16dbbb8ce96c18d20b63ecd2500d69533644388a1b1d2e8",
+  "dataset_sha256": "2c8cfc698fade699afd819f4b5814a466ab0714a8cde82474bcfb9ef3b675e9e",
+  "versions": {
+    "sklearn": "1.9.0",
+    "polars": "1.42.1",
+    "numpy": "2.5.1"
+  },
+  "production_training_through": "20260909",
+  "recorded_at": "2026-09-12T04:03:06.812896+00:00"
+}

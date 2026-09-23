@@ -1,0 +1,92 @@
+{
+  "training": [
+    "20260719",
+    "20260820"
+  ],
+  "evaluation": [
+    "20260820",
+    "20260909"
+  ],
+  "training_end_inclusive": "20260819",
+  "train_races": 4224,
+  "test_races": 2717,
+  "rejected_races": 1165,
+  "features": [
+    "boat",
+    "jcd",
+    "class_ord",
+    "age",
+    "weight",
+    "nat_wr",
+    "nat_2r",
+    "loc_wr",
+    "loc_2r",
+    "motor_2r",
+    "boat_2r",
+    "hist_n",
+    "hist_win_rate",
+    "hist_top2_rate",
+    "hist_mean_st",
+    "hist_f_rate",
+    "vb_win_rate",
+    "exhibition_weight",
+    "adjustment_weight",
+    "tenji",
+    "tilt",
+    "exhibition_course",
+    "exhibition_st",
+    "wind_speed",
+    "wind_direction",
+    "wave_height",
+    "weather_code",
+    "air_temperature",
+    "water_temperature",
+    "tenji_rel",
+    "tenji_rank",
+    "exhibition_st_rel",
+    "exhibition_f",
+    "course_change"
+  ],
+  "backfilled_data_used": false,
+  "sealed_evaluation_used": false,
+  "baseline": {
+    "first_logloss": 1.9951968510609261,
+    "exacta_logloss": 3.392461532367262,
+    "quinella_logloss": 2.3450051084259846
+  },
+  "preview": {
+    "first_logloss": 1.9918778318307098,
+    "exacta_logloss": 3.379936227765531,
+    "quinella_logloss": 2.316080994201144
+  },
+  "preview_minus_baseline": {
+    "mean": [
+      -0.0033190192302159495,
+      -0.01252530460171903,
+      -0.028924114224841688
+    ],
+    "day_bootstrap_95ci": [
+      [
+        -0.022962922698367222,
+        0.01603746349969054
+      ],
+      [
+        -0.032565551293399934,
+        0.008211210643387128
+      ],
+      [
+        -0.04557135382251623,
+        -0.01301333225532046
+      ]
+    ],
+    "order": [
+      "1着",
+      "2連単",
+      "2連複"
+    ],
+    "negative_is_better": true
+  },
+  "limitation": "Single historical split; equal training samples; not evidence of profitability or comparison with the larger historical production fit.",
+  "model_sha256": "8f9cd2f73709b4d8cd93b2ba054656979ac0379f67506ee07596613e1fc868ca",
+  "recorded_at": "2026-09-12T04:01:20.737080+00:00"
+}

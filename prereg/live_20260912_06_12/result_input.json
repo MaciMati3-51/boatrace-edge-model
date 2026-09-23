@@ -1,0 +1,15 @@
+{
+  "date": "20260912",
+  "jcd": 6,
+  "race_no": 12,
+  "source_image": "picture/スクリーンショット 2026-09-12 171825.png",
+  "finish_order": [1, 2, 3, 5, 6, 4],
+  "racer_ids_by_finish": [5066, 4066, 4068, 5091, 4269, 4654],
+  "kimarite": "逃げ",
+  "refunds": [],
+  "payout_per_100_jpy": {"2t": {"1-2": 230}, "2f": {"1-2": 200}},
+  "other_payouts_not_evaluated": {"3t_1-2-3": 1240, "3f_1-2-3": 730},
+  "actual_course_by_boat": [1, 2, 3, 4, 5, 6],
+  "actual_st_by_boat": [0.08, 0.12, 0.11, 0.12, 0.11, 0.12],
+  "result_weather": {"wind_speed_mps": 3, "wave_cm": 3, "air_c": 25, "water_c": 26, "weather": "曇り"}
+}

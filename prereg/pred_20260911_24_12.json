@@ -1,0 +1,12 @@
+{
+  "recorded_at": "2026-09-11T11:44:08.266073+00:00",
+  "prediction_completed_jst": "2026-09-11T20:43:53+09:00",
+  "scheduled_deadline_jst": "2026-09-11T20:45:00+09:00",
+  "sha256": "0f54315ae9425eede434054ceadf6d05459c6decee015dfda49d3c466ce779e0",
+  "model": "predict_day.py, existing parameters, no exhibition features",
+  "training_through": "20260909",
+  "odds_seen_before_prediction": true,
+  "race_result_accessed": false,
+  "odds_updated_jst": "20:40",
+  "validation": "30 pairs; all probability distributions sum to 1"
+}

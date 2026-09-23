@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-09-12T08:02:27.227244+00:00",
+  "model_sha256": "17442e4f5ce42b53e16dbbb8ce96c18d20b63ecd2500d69533644388a1b1d2e8",
+  "calibration": {
+    "2t": {
+      "combined": [
+        0.4803421353085765,
+        0.6390297496539474
+      ],
+      "market_power": [
+        0.0,
+        1.1086059196023552
+      ],
+      "calibration_races": 1983
+    },
+    "2f": {
+      "combined": [
+        0.726077954469375,
+        0.3988122167578281
+      ],
+      "market_power": [
+        0.0,
+        1.0328859134479407
+      ],
+      "calibration_races": 1611
+    },
+    "training_through": "20260909",
+    "generated_at": "2026-09-12T05:40:42.466619+00:00",
+    "fundamental_model_sha256": "17442e4f5ce42b53e16dbbb8ce96c18d20b63ecd2500d69533644388a1b1d2e8",
+    "note": "Final coefficients fit on Aug20-Sep09 OOS base probabilities; base subsequently refit through Sep09"
+  },
+  "odds_sha256": "4c7f1489bb07b94183b5b727793540d5efcdac044dad34d65332c30afc77808d",
+  "note": "Research probabilities and paper candidates; profitability not established. Check timestamp before claiming preregistration."
+}

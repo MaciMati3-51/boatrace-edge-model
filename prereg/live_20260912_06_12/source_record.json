@@ -1,0 +1,30 @@
+{
+  "recorded_at": "2026-09-12T08:02:27.228658+00:00",
+  "source_images_sha256": {
+    "picture/スクリーンショット 2026-09-12 165830.png": "df4f6ee6254ec52eb67ba1f26374e3d0bb88c4917fc40801339fd0c4afd7f7bb",
+    "picture/スクリーンショット 2026-09-12 165840.png": "4bf12365e6769993edd1cac24d9a5358c872b0d60a887e8a83701b1ab43a3366",
+    "picture/スクリーンショット 2026-09-12 165845.png": "c72e6544d165f50d05ede5a9799e604bb2a39242cc685236b86c134a074128fa"
+  },
+  "race_result_accessed": false,
+  "model_retrained": false,
+  "scheduled_deadline_jst": "2026-09-12T17:08:00+09:00",
+  "odds_display_updated_jst": "2026-09-12T16:57+09:00",
+  "odds_update_precision": "minute",
+  "weather_observed_at": "11R時点",
+  "weather_code": 2,
+  "wind_direction_code": 4,
+  "weather_crosscheck_url": "https://boatracecsv.github.io/data/previews/sui/2026/09/12.csv",
+  "weather_crosscheck_row": {
+    "レースコード": "202609120612",
+    "取得日時": "2026-09-12T16:58:17.319903+09:00",
+    "気象観測時刻": "1608",
+    "風速(m)": "3.0",
+    "風向": "4",
+    "波の高さ(cm)": "1.0",
+    "天候": "2",
+    "気温(℃)": "25.0",
+    "水温(℃)": "26.0"
+  },
+  "weather_code_reference": "https://github.com/BoatraceCSV/fun-site/blob/main/packages/shared/src/utils/weather-pt.ts",
+  "notes": "Screenshots transcribed manually. F.02=-0.02. No subjective adjustments. Histories available locally only; no same-day results fetched."
+}

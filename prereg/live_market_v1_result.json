@@ -1,0 +1,142 @@
+{
+  "calibration_period": [
+    "20260820",
+    "20260831"
+  ],
+  "evaluation_period": [
+    "20260901",
+    "20260909"
+  ],
+  "status": "exploratory historical comparison; normal six-finisher races only",
+  "bet_rule": "all combinations with p * captured odds > 1; 100 JPY each",
+  "pools": {
+    "2t": {
+      "counts": {
+        "prediction_races": 2717,
+        "missing_or_invalid_board": 734,
+        "invalid_payout": 0
+      },
+      "calibration_races": 1168,
+      "test_races": 815,
+      "market_power_coefficients": [
+        0.0,
+        1.1195956417107418
+      ],
+      "combined_coefficients": [
+        0.46332771181741245,
+        0.6658818565240324
+      ],
+      "metrics": {
+        "fundamental": {
+          "logloss": 2.6400622012124786,
+          "bets": 6181,
+          "stake_jpy": 618100,
+          "return_jpy": 438230,
+          "roi": 0.7089953082025562,
+          "day_bootstrap_roi_95ci": [
+            0.5558841524663677,
+            0.928794448548824
+          ]
+        },
+        "market": {
+          "logloss": 2.64101611214999,
+          "bets": 0,
+          "stake_jpy": 0,
+          "return_jpy": 0,
+          "roi": null,
+          "day_bootstrap_roi_95ci": null
+        },
+        "market_power": {
+          "logloss": 2.636741699586124,
+          "bets": 0,
+          "stake_jpy": 0,
+          "return_jpy": 0,
+          "roi": null,
+          "day_bootstrap_roi_95ci": null
+        },
+        "combined": {
+          "logloss": 2.5753251076620836,
+          "bets": 2383,
+          "stake_jpy": 238300,
+          "return_jpy": 197760,
+          "roi": 0.8298783046579942,
+          "day_bootstrap_roi_95ci": [
+            0.6980803511616265,
+            0.9792861594269218
+          ]
+        }
+      },
+      "combined_minus_market_power": {
+        "mean": -0.06141659192404092,
+        "day_bootstrap_95ci": [
+          -0.08542193616084934,
+          -0.03862350447622498
+        ]
+      }
+    },
+    "2f": {
+      "counts": {
+        "prediction_races": 2717,
+        "missing_or_invalid_board": 1106,
+        "invalid_payout": 0
+      },
+      "calibration_races": 943,
+      "test_races": 668,
+      "market_power_coefficients": [
+        0.0,
+        1.0378944273966035
+      ],
+      "combined_coefficients": [
+        0.7001611596154385,
+        0.43734692680027887
+      ],
+      "metrics": {
+        "fundamental": {
+          "logloss": 2.073120970701283,
+          "bets": 2666,
+          "stake_jpy": 266600,
+          "return_jpy": 232420,
+          "roi": 0.8717929482370592,
+          "day_bootstrap_roi_95ci": [
+            0.7357918814197246,
+            1.0002280854850023
+          ]
+        },
+        "market": {
+          "logloss": 2.165926010378039,
+          "bets": 0,
+          "stake_jpy": 0,
+          "return_jpy": 0,
+          "roi": null,
+          "day_bootstrap_roi_95ci": null
+        },
+        "market_power": {
+          "logloss": 2.1657047065985897,
+          "bets": 0,
+          "stake_jpy": 0,
+          "return_jpy": 0,
+          "roi": null,
+          "day_bootstrap_roi_95ci": null
+        },
+        "combined": {
+          "logloss": 2.0563196213319292,
+          "bets": 1743,
+          "stake_jpy": 174300,
+          "return_jpy": 167350,
+          "roi": 0.9601262191623637,
+          "day_bootstrap_roi_95ci": [
+            0.7359787469698237,
+            1.1776980623884064
+          ]
+        }
+      },
+      "combined_minus_market_power": {
+        "mean": -0.10938508526666053,
+        "day_bootstrap_95ci": [
+          -0.13890830017749967,
+          -0.07623037734219074
+        ]
+      }
+    }
+  }
+}

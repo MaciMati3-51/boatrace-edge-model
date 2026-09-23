@@ -1,0 +1,44 @@
+{
+  "tkz": {
+    "files": 251,
+    "races": 35988,
+    "start": "20260101",
+    "end": "20260909",
+    "timing_unknown": 16127,
+    "at_or_after_scheduled_deadline": 0
+  },
+  "stt": {
+    "files": 251,
+    "races": 35977,
+    "start": "20260101",
+    "end": "20260909",
+    "timing_unknown": 16127,
+    "at_or_after_scheduled_deadline": 0
+  },
+  "sui": {
+    "files": 251,
+    "races": 35988,
+    "start": "20260101",
+    "end": "20260909",
+    "timing_unknown": 16127,
+    "at_or_after_scheduled_deadline": 0
+  },
+  "od2": {
+    "files": 53,
+    "races": 8070,
+    "start": "20260719",
+    "end": "20260909",
+    "timing_unknown": 0,
+    "at_or_after_scheduled_deadline": 0,
+    "positive_complete_boards": 4002
+  },
+  "entries": {
+    "races": 39420
+  },
+  "results": {
+    "races": 38942
+  },
+  "all_sources_and_results_matched": 8066,
+  "parts_exchange": "not provided by these CSVs; missing",
+  "training_or_evaluation_performed": false
+}

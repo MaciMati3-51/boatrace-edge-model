@@ -1,0 +1,525 @@
+{
+  "calibration_period": [
+    "20260719",
+    "20260819"
+  ],
+  "test_period": [
+    "20260820",
+    "20260909"
+  ],
+  "status": "exploratory historical comparison; normal six-finisher races; boards captured about 9 minutes before the deadline",
+  "final_market": "probability of the winning combination from the settled payout: (100/payout)/TAKE",
+  "bet_rules": {
+    "ev_captured": "P_final x captured odds > 1 (v1 rule)",
+    "ev_settle": "P_final x captured odds x E[settled/captured | win] > 1 (v2 rule)"
+  },
+  "pools": {
+    "2t": {
+      "counts": {
+        "boards": 7572,
+        "no_normal_payout": 0,
+        "incomplete_board": 2219,
+        "used": 5353
+      },
+      "calibration_races": 3186,
+      "test_races": 2167,
+      "drift": {
+        "beta": [
+          0.15479091809835419,
+          -0.7030461126058566,
+          0.08022473161618093
+        ],
+        "smearing": 1.0569942117714128,
+        "winners": 3186,
+        "residual_sd": 0.32948643126606914
+      },
+      "methods": {
+        "test": {
+          "races": 2167,
+          "final_market_logloss": 2.526328886884888,
+          "fundamental": {
+            "coefficients": [
+              1.0
+            ],
+            "logloss": 2.5691343568869587,
+            "minus_final_market": {
+              "mean": 0.04280547000207026,
+              "day_bootstrap_95ci": [
+                0.02275453980568478,
+                0.06129401992682706
+              ]
+            },
+            "paper_ev_captured_gt_1": {
+              "bets": 13965,
+              "stake_jpy": 1396500,
+              "return_jpy": 1017510,
+              "roi": 0.7286143931256713,
+              "day_bootstrap_roi_95ci": [
+                0.6540623262684836,
+                0.806119427280593
+              ]
+            }
+          },
+          "market": {
+            "coefficients": [
+              1.0
+            ],
+            "logloss": 2.6421283116047287,
+            "minus_final_market": {
+              "mean": 0.1157994247198407,
+              "day_bootstrap_95ci": [
+                0.09411395095232362,
+                0.13733565314167528
+              ]
+            },
+            "paper_ev_captured_gt_1": {
+              "bets": 0,
+              "stake_jpy": 0,
+              "return_jpy": 0,
+              "roi": null,
+              "day_bootstrap_roi_95ci": null
+            }
+          },
+          "market_power": {
+            "coefficients": [
+              1.0907262020672315
+            ],
+            "logloss": 2.636516145565157,
+            "minus_final_market": {
+              "mean": 0.11018725868026877,
+              "day_bootstrap_95ci": [
+                0.08732081256526358,
+                0.1325903201988914
+              ]
+            },
+            "paper_ev_captured_gt_1": {
+              "bets": 0,
+              "stake_jpy": 0,
+              "return_jpy": 0,
+              "roi": null,
+              "day_bootstrap_roi_95ci": null
+            }
+          },
+          "combined": {
+            "coefficients": [
+              0.724945771336672,
+              0.3513279407619171
+            ],
+            "logloss": 2.5497959140845086,
+            "minus_final_market": {
+              "mean": 0.023467027199620613,
+              "day_bootstrap_95ci": [
+                0.007895094030332905,
+                0.03911843633697087
+              ]
+            },
+            "paper_ev_captured_gt_1": {
+              "bets": 9675,
+              "stake_jpy": 967500,
+              "return_jpy": 764920,
+              "roi": 0.7906149870801034,
+              "day_bootstrap_roi_95ci": [
+                0.6912796400022734,
+                0.8945067348263989
+              ]
+            },
+            "paper_ev_settle_gt_1": {
+              "bets": 71,
+              "stake_jpy": 7100,
+              "return_jpy": 7350,
+              "roi": 1.0352112676056338,
+              "day_bootstrap_roi_95ci": [
+                0.5146736011477762,
+                1.7230803571428572
+              ]
+            },
+            "model_expected_roi_of_ev_captured_bets": 1.3211030158190187,
+            "model_expected_roi_of_ev_settle_bets": 1.03190582872136
+          }
+        },
+        "v1_test_window": {
+          "races": 931,
+          "final_market_logloss": 2.5158423402511185,
+          "fundamental": {
+            "coefficients": [
+              1.0
+            ],
+            "logloss": 2.5649417954481915,
+            "minus_final_market": {
+              "mean": 0.049099455197073316,
+              "day_bootstrap_95ci": [
+                0.03382253441300498,
+                0.06357274687856453
+              ]
+            },
+            "paper_ev_captured_gt_1": {
+              "bets": 5938,
+              "stake_jpy": 593800,
+              "return_jpy": 369110,
+              "roi": 0.6216066015493432,
+              "day_bootstrap_roi_95ci": [
+                0.5535616438356165,
+                0.6942520016380842
+              ]
+            }
+          },
+          "market": {
+            "coefficients": [
+              1.0
+            ],
+            "logloss": 2.6402263379950073,
+            "minus_final_market": {
+              "mean": 0.12438399774388939,
+              "day_bootstrap_95ci": [
+                0.0838248553055655,
+                0.16597120356200423
+              ]
+            },
+            "paper_ev_captured_gt_1": {
+              "bets": 0,
+              "stake_jpy": 0,
+              "return_jpy": 0,
+              "roi": null,
+              "day_bootstrap_roi_95ci": null
+            }
+          },
+          "market_power": {
+            "coefficients": [
+              1.0907262020672315
+            ],
+            "logloss": 2.635358710251157,
+            "minus_final_market": {
+              "mean": 0.11951637000003887,
+              "day_bootstrap_95ci": [
+                0.07892897398251732,
+                0.16226027318275835
+              ]
+            },
+            "paper_ev_captured_gt_1": {
+              "bets": 0,
+              "stake_jpy": 0,
+              "return_jpy": 0,
+              "roi": null,
+              "day_bootstrap_roi_95ci": null
+            }
+          },
+          "combined": {
+            "coefficients": [
+              0.724945771336672,
+              0.3513279407619171
+            ],
+            "logloss": 2.5465678884688874,
+            "minus_final_market": {
+              "mean": 0.030725548217768982,
+              "day_bootstrap_95ci": [
+                0.019807056119075694,
+                0.042072766988003635
+              ]
+            },
+            "paper_ev_captured_gt_1": {
+              "bets": 4085,
+              "stake_jpy": 408500,
+              "return_jpy": 317350,
+              "roi": 0.7768665850673194,
+              "day_bootstrap_roi_95ci": [
+                0.6954668353161069,
+                0.8681780585632349
+              ]
+            },
+            "paper_ev_settle_gt_1": {
+              "bets": 32,
+              "stake_jpy": 3200,
+              "return_jpy": 2260,
+              "roi": 0.70625,
+              "day_bootstrap_roi_95ci": [
+                0.18214285714285713,
+                1.353020833333332
+              ]
+            },
+            "model_expected_roi_of_ev_captured_bets": 1.321590779489213,
+            "model_expected_roi_of_ev_settle_bets": 1.0324959010457855
+          }
+        }
+      }
+    },
+    "2f": {
+      "counts": {
+        "boards": 7572,
+        "no_normal_payout": 1,
+        "incomplete_board": 3803,
+        "used": 3768
+      },
+      "calibration_races": 2241,
+      "test_races": 1527,
+      "drift": {
+        "beta": [
+          0.13636634589344623,
+          -0.5958882331675874,
+          0.08024902288570217,
+          -0.2355925093822151
+        ],
+        "smearing": 1.0466511000908845,
+        "winners": 2241,
+        "residual_sd": 0.3004295159557645
+      },
+      "methods": {
+        "test": {
+          "races": 1527,
+          "final_market_logloss": 2.016962251024371,
+          "fundamental": {
+            "coefficients": [
+              1.0
+            ],
+            "logloss": 2.0258198087630372,
+            "minus_final_market": {
+              "mean": 0.008857557738665858,
+              "day_bootstrap_95ci": [
+                -0.015512830146539416,
+                0.03193225278881266
+              ]
+            },
+            "paper_ev_captured_gt_1": {
+              "bets": 5419,
+              "stake_jpy": 541900,
+              "return_jpy": 445220,
+              "roi": 0.8215906993910316,
+              "day_bootstrap_roi_95ci": [
+                0.7242719016346713,
+                0.9291737368966837
+              ]
+            }
+          },
+          "market": {
+            "coefficients": [
+              1.0
+            ],
+            "logloss": 2.1420773461499945,
+            "minus_final_market": {
+              "mean": 0.1251150951256235,
+              "day_bootstrap_95ci": [
+                0.09993782029646665,
+                0.14917069894709334
+              ]
+            },
+            "paper_ev_captured_gt_1": {
+              "bets": 0,
+              "stake_jpy": 0,
+              "return_jpy": 0,
+              "roi": null,
+              "day_bootstrap_roi_95ci": null
+            }
+          },
+          "market_power": {
+            "coefficients": [
+              1.0636929501633627
+            ],
+            "logloss": 2.1417430716959354,
+            "minus_final_market": {
+              "mean": 0.12478082067156425,
+              "day_bootstrap_95ci": [
+                0.09880806487293456,
+                0.15003816508524004
+              ]
+            },
+            "paper_ev_captured_gt_1": {
+              "bets": 0,
+              "stake_jpy": 0,
+              "return_jpy": 0,
+              "roi": null,
+              "day_bootstrap_roi_95ci": null
+            }
+          },
+          "market_mix": {
+            "coefficients": [
+              0.3768196184726821,
+              0.7784593208266297
+            ],
+            "logloss": 2.0623281761506913,
+            "minus_final_market": {
+              "mean": 0.045365925126320344,
+              "day_bootstrap_95ci": [
+                0.022901959787751055,
+                0.06961817129082701
+              ]
+            },
+            "paper_ev_captured_gt_1": {
+              "bets": 3280,
+              "stake_jpy": 328000,
+              "return_jpy": 255660,
+              "roi": 0.7794512195121951,
+              "day_bootstrap_roi_95ci": [
+                0.660621354413074,
+                0.891767188685183
+              ]
+            }
+          },
+          "combined": {
+            "coefficients": [
+              0.6388986433933822,
+              0.16418800485014096,
+              0.30649900762583837
+            ],
+            "logloss": 2.0111294595818237,
+            "minus_final_market": {
+              "mean": -0.005832791442547516,
+              "day_bootstrap_95ci": [
+                -0.024850643505971694,
+                0.012468900368394336
+              ]
+            },
+            "paper_ev_captured_gt_1": {
+              "bets": 4218,
+              "stake_jpy": 421800,
+              "return_jpy": 386700,
+              "roi": 0.9167852062588905,
+              "day_bootstrap_roi_95ci": [
+                0.798136681498239,
+                1.0422968105843278
+              ]
+            },
+            "paper_ev_settle_gt_1": {
+              "bets": 63,
+              "stake_jpy": 6300,
+              "return_jpy": 7840,
+              "roi": 1.2444444444444445,
+              "day_bootstrap_roi_95ci": [
+                0.603095238095238,
+                2.0359222179437806
+              ]
+            },
+            "model_expected_roi_of_ev_captured_bets": 1.4344124861169922,
+            "model_expected_roi_of_ev_settle_bets": 1.0355940275155566
+          }
+        },
+        "v1_test_window": {
+          "races": 674,
+          "final_market_logloss": 2.033522957265822,
+          "fundamental": {
+            "coefficients": [
+              1.0
+            ],
+            "logloss": 2.0397333793267336,
+            "minus_final_market": {
+              "mean": 0.006210422060911002,
+              "day_bootstrap_95ci": [
+                -0.02060031793390851,
+                0.030358871331007373
+              ]
+            },
+            "paper_ev_captured_gt_1": {
+              "bets": 2264,
+              "stake_jpy": 226400,
+              "return_jpy": 196870,
+              "roi": 0.8695671378091873,
+              "day_bootstrap_roi_95ci": [
+                0.7026734578337143,
+                1.0345499977772177
+              ]
+            }
+          },
+          "market": {
+            "coefficients": [
+              1.0
+            ],
+            "logloss": 2.1568167653257797,
+            "minus_final_market": {
+              "mean": 0.1232938080599575,
+              "day_bootstrap_95ci": [
+                0.08198227455044106,
+                0.1652378124675547
+              ]
+            },
+            "paper_ev_captured_gt_1": {
+              "bets": 0,
+              "stake_jpy": 0,
+              "return_jpy": 0,
+              "roi": null,
+              "day_bootstrap_roi_95ci": null
+            }
+          },
+          "market_power": {
+            "coefficients": [
+              1.0636929501633627
+            ],
+            "logloss": 2.156470011168081,
+            "minus_final_market": {
+              "mean": 0.1229470539022585,
+              "day_bootstrap_95ci": [
+                0.08214024544592338,
+                0.1639024240221301
+              ]
+            },
+            "paper_ev_captured_gt_1": {
+              "bets": 0,
+              "stake_jpy": 0,
+              "return_jpy": 0,
+              "roi": null,
+              "day_bootstrap_roi_95ci": null
+            }
+          },
+          "market_mix": {
+            "coefficients": [
+              0.3768196184726821,
+              0.7784593208266297
+            ],
+            "logloss": 2.080433557038347,
+            "minus_final_market": {
+              "mean": 0.04691059977252501,
+              "day_bootstrap_95ci": [
+                0.0062593079194379906,
+                0.09246082410677733
+              ]
+            },
+            "paper_ev_captured_gt_1": {
+              "bets": 1367,
+              "stake_jpy": 136700,
+              "return_jpy": 122800,
+              "roi": 0.8983174835405998,
+              "day_bootstrap_roi_95ci": [
+                0.7113932712608035,
+                1.091983084258107
+              ]
+            }
+          },
+          "combined": {
+            "coefficients": [
+              0.6388986433933822,
+              0.16418800485014096,
+              0.30649900762583837
+            ],
+            "logloss": 2.0273895641141944,
+            "minus_final_market": {
+              "mean": -0.0061333931516276375,
+              "day_bootstrap_95ci": [
+                -0.030946870113833194,
+                0.018430278311846193
+              ]
+            },
+            "paper_ev_captured_gt_1": {
+              "bets": 1755,
+              "stake_jpy": 175500,
+              "return_jpy": 170750,
+              "roi": 0.9729344729344729,
+              "day_bootstrap_roi_95ci": [
+                0.7900620265213564,
+                1.1698672628769824
+              ]
+            },
+            "paper_ev_settle_gt_1": {
+              "bets": 31,
+              "stake_jpy": 3100,
+              "return_jpy": 3820,
+              "roi": 1.232258064516129,
+              "day_bootstrap_roi_95ci": [
+                0.4166071428571429,
+                2.0707235294117643
+              ]
+            },
+            "model_expected_roi_of_ev_captured_bets": 1.3984638731717651,
+            "model_expected_roi_of_ev_settle_bets": 1.0330940874430692
+          }
+        }
+      }
+    }
+  }
+}

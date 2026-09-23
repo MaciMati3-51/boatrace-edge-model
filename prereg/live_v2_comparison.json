@@ -1,0 +1,121 @@
+{
+  "training_start": "20220901",
+  "training_end_inclusive": "20260909",
+  "features": [
+    "boat",
+    "jcd",
+    "class_ord",
+    "age",
+    "weight",
+    "nat_wr",
+    "nat_2r",
+    "loc_wr",
+    "loc_2r",
+    "motor_2r",
+    "boat_2r",
+    "hist_n",
+    "hist_win_rate",
+    "hist_top2_rate",
+    "hist_mean_st",
+    "hist_f_rate",
+    "vb_win_rate",
+    "tenji",
+    "tenji_rel",
+    "tenji_rank"
+  ],
+  "second_stage": "race-level 6-class softmax given the winner",
+  "sealed_period_used_for": "training only (never evaluated)",
+  "folds": [
+    {
+      "trained_before": "20260719",
+      "predicted": [
+        "20260719",
+        "20260819"
+      ],
+      "train_races": 198943,
+      "predicted_races": 4821,
+      "iterations": [
+        111,
+        97
+      ]
+    },
+    {
+      "trained_before": "20260820",
+      "predicted": [
+        "20260820",
+        "20260909"
+      ],
+      "train_races": 203764,
+      "predicted_races": 2993,
+      "iterations": [
+        106,
+        123
+      ]
+    }
+  ],
+  "comparison": {
+    "races": 2717,
+    "period": [
+      "20260820",
+      "20260909"
+    ],
+    "order": [
+      "1着",
+      "2連単",
+      "2連複"
+    ],
+    "negative_is_better": true,
+    "logloss": {
+      "v2": [
+        1.179540218499289,
+        2.536579235439997,
+        1.9816703160930762
+      ],
+      "v1_baseline": [
+        1.253944887198054,
+        2.651209568504386,
+        2.0613591659178994
+      ],
+      "v1_preview": [
+        1.236536504583639,
+        2.6245949005184652,
+        2.0338253610527874
+      ]
+    },
+    "v2_minus_v1_preview": {
+      "mean": [
+        -0.056996286084348535,
+        -0.08801566507846954,
+        -0.05215504495971218
+      ],
+      "day_bootstrap_95ci": [
+        [
+          -0.07032991682642195,
+          -0.04454466964531248
+        ],
+        [
+          -0.10436358301198591,
+          -0.07157233820355748
+        ],
+        [
+          -0.06515486682926029,
+          -0.04045338666928325
+        ]
+      ]
+    },
+    "status": "exploratory: this period was already used to develop live_v1 and to choose the v2 design"
+  },
+  "train_races": 206757,
+  "iterations": [
+    120,
+    116
+  ],
+  "model_sha256": "9c986b92445b5e741451736e892d1f39862f882ac47f3b99f5e4c3ae30e7bfe9",
+  "oos_sha256": "370b92d7147c503369a761f17a6a2a41be827fdedabc1780f81aa99ddb27ef1c",
+  "versions": {
+    "sklearn": "1.9.0",
+    "polars": "1.42.1",
+    "numpy": "2.5.1"
+  },
+  "recorded_at": "2026-09-23T05:55:06.973262+00:00"
+}

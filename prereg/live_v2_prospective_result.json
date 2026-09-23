@@ -1,0 +1,187 @@
+{
+  "period": [
+    "20260910",
+    "20260922"
+  ],
+  "evaluated_at": "2026-09-23T06:03:16.855008+00:00",
+  "v1_reproduction_races": 6941,
+  "frozen_hashes_verified": true,
+  "races": {
+    "v1_predictable": 1687,
+    "v2_predictable": 1854,
+    "tenji_preview_vs_k_mismatched_boats": 0
+  },
+  "Q1": {
+    "races": 1687,
+    "order": [
+      "1着",
+      "2連単",
+      "2連複"
+    ],
+    "v1": [
+      1.214308266887538,
+      2.588257515009432,
+      1.9957355570026178
+    ],
+    "v2": [
+      1.151181182154317,
+      2.506858871690088,
+      1.9554994233286753
+    ],
+    "v2_minus_v1": [
+      -0.06312708473322283,
+      -0.08139864331934732,
+      -0.04023613367393678
+    ],
+    "day_bootstrap_95ci": [
+      [
+        -0.07942370662076054,
+        -0.0466444852959437
+      ],
+      [
+        -0.10036575115036137,
+        -0.060694890271485676
+      ],
+      [
+        -0.053562438006550486,
+        -0.024412390797900085
+      ]
+    ],
+    "verdict": "v2 better"
+  },
+  "minutes_before_deadline_od2": [
+    8.515397525000001,
+    9.493667466666666,
+    9.670277320833332
+  ],
+  "2t": {
+    "v2": {
+      "races": 1259,
+      "final_market_logloss": 2.4942346233474852,
+      "combined_logloss": 2.5146299064153,
+      "combined_minus_final_market": {
+        "mean": 0.02039528306781413,
+        "day_bootstrap_95ci": [
+          0.007071507369010597,
+          0.03221658514535636
+        ]
+      },
+      "captured_market_logloss": 2.6307262342178626,
+      "paper_ev_captured_gt_1": {
+        "bets": 5621,
+        "stake_jpy": 562100,
+        "return_jpy": 421020,
+        "roi": 0.749012631204412,
+        "day_bootstrap_roi_95ci": [
+          0.6602259219306719,
+          0.8412003155441528
+        ]
+      },
+      "Q3": {
+        "bets": 5621,
+        "realized_roi": 0.749012631204412,
+        "mean_ev_captured": 1.3263054347625085,
+        "mean_ev_settle": 0.8141553113142482,
+        "verdict": "drift correction works"
+      },
+      "paper_ev_settle_gt_1": {
+        "bets": 67,
+        "stake_jpy": 6700,
+        "return_jpy": 8430,
+        "roi": 1.2582089552238807,
+        "day_bootstrap_roi_95ci": [
+          0.6791689128481581,
+          1.8057780612244898
+        ]
+      }
+    },
+    "v1": {
+      "races": 1152,
+      "final_market_logloss": 2.4962020903511646,
+      "combined_logloss": 2.555084725891417,
+      "combined_minus_final_market": {
+        "mean": 0.05888263554025254,
+        "day_bootstrap_95ci": [
+          0.04294810209435006,
+          0.07523094036949578
+        ]
+      },
+      "captured_market_logloss": 2.6315012866165324,
+      "paper_ev_captured_gt_1": {
+        "bets": 3678,
+        "stake_jpy": 367800,
+        "return_jpy": 274770,
+        "roi": 0.7470636215334421,
+        "day_bootstrap_roi_95ci": [
+          0.6594657226301174,
+          0.8534006342571799
+        ]
+      }
+    }
+  },
+  "2f": {
+    "v2": {
+      "races": 948,
+      "final_market_logloss": 1.9853202861605475,
+      "combined_logloss": 1.9906713057782919,
+      "combined_minus_final_market": {
+        "mean": 0.005351019617744658,
+        "day_bootstrap_95ci": [
+          -0.013982537529971273,
+          0.023431257112236082
+        ]
+      },
+      "captured_market_logloss": 2.104287301894495,
+      "paper_ev_captured_gt_1": {
+        "bets": 2682,
+        "stake_jpy": 268200,
+        "return_jpy": 203000,
+        "roi": 0.7568978374347501,
+        "day_bootstrap_roi_95ci": [
+          0.6929077045268132,
+          0.8317338008117142
+        ]
+      },
+      "Q3": {
+        "bets": 2682,
+        "realized_roi": 0.7568978374347501,
+        "mean_ev_captured": 1.4239680490194178,
+        "mean_ev_settle": 0.7951965115660231,
+        "verdict": "drift correction works"
+      },
+      "paper_ev_settle_gt_1": {
+        "bets": 69,
+        "stake_jpy": 6900,
+        "return_jpy": 7170,
+        "roi": 1.0391304347826087,
+        "day_bootstrap_roi_95ci": [
+          0.5651136363636364,
+          1.6236458333333332
+        ]
+      }
+    },
+    "v1": {
+      "races": 867,
+      "final_market_logloss": 2.000862585578147,
+      "combined_logloss": 2.025939563088599,
+      "combined_minus_final_market": {
+        "mean": 0.025076977510452264,
+        "day_bootstrap_95ci": [
+          0.006669079552847713,
+          0.0439340301215725
+        ]
+      },
+      "captured_market_logloss": 2.1241182713542948,
+      "paper_ev_captured_gt_1": {
+        "bets": 2418,
+        "stake_jpy": 241800,
+        "return_jpy": 196990,
+        "roi": 0.8146815550041356,
+        "day_bootstrap_roi_95ci": [
+          0.6888995155389287,
+          0.9585622119815665
+        ]
+      }
+    }
+  }
+}

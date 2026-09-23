@@ -19,3 +19,9 @@ data/
 
 # 実行ログ
 logs_*.txt
+
+# スクショ（boatrace.jp の画面。公開リポジトリに載せない。照合は prereg の SHA256 とローカル画像で行う）
+picture/
+
+# 作業ツールが作るセッション残骸
+:memory:.ses

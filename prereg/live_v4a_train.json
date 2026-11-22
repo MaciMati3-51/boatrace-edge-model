@@ -1,0 +1,91 @@
+{
+  "training_start": "20190901",
+  "training_end_inclusive": "20260909",
+  "sealed_period_used_for": "training only (never evaluated)",
+  "blend_cl": 0.7,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "refit_factor": 1.1,
+  "early_stop_days": 90,
+  "folds": [
+    {
+      "trained_before": "20260719",
+      "train_races": 352007,
+      "races": 7814,
+      "period": [
+        "20260719",
+        "20260909"
+      ],
+      "order": [
+        "1着",
+        "2連単",
+        "2連複",
+        "3連単",
+        "3連複"
+      ],
+      "logloss": [
+        1.136971470364739,
+        2.461453927616825,
+        1.9218733157972976,
+        3.672437591891401,
+        2.2460897326837346
+      ],
+      "minus_final_market": {
+        "2連単": {
+          "races": 7814,
+          "final_market_logloss": 2.490352669283774,
+          "mean": -0.028898741666944706,
+          "day_bootstrap_95ci": [
+            -0.037016802479124214,
+            -0.01985092009451952
+          ]
+        },
+        "2連複": {
+          "races": 7813,
+          "final_market_logloss": 1.9716413145066356,
+          "mean": -0.050380228853701546,
+          "day_bootstrap_95ci": [
+            -0.05717199438331777,
+            -0.043410597652797055
+          ]
+        },
+        "3連単": {
+          "races": 7814,
+          "final_market_logloss": 3.6780234555946683,
+          "mean": -0.005585863703262246,
+          "day_bootstrap_95ci": [
+            -0.015071225134571037,
+            0.0046922189768996035
+          ]
+        },
+        "3連複": {
+          "races": 7814,
+          "final_market_logloss": 2.2770440004919896,
+          "mean": -0.030954267808266607,
+          "day_bootstrap_95ci": [
+            -0.03897998301812679,
+            -0.02295425324384666
+          ]
+        }
+      }
+    }
+  ],
+  "train_races": 359821,
+  "iterations": {
+    "cl1": 896,
+    "flat1": 752,
+    "cl2": 536,
+    "cl3": 775
+  },
+  "model_sha256": "6f4a519d059f7cc4a28a392c9dd9b5975a974ed76b055d6a83c3b7bf961c09d2",
+  "oos_sha256": "cfcdb74f4944c157da394ae60cbfb76c0ed8975e5a58b30df1ee5169eec93427",
+  "versions": {
+    "lightgbm": "4.7.0",
+    "polars": "1.42.1",
+    "numpy": "2.5.1"
+  },
+  "recorded_at": "2026-11-16T21:22:10.569632+00:00"
+}

@@ -1,0 +1,98 @@
+{
+  "training_start": "20190901",
+  "training_end_inclusive": "20260909",
+  "sealed_period_used_for": "training only (never evaluated)",
+  "blend_cl": 0.6,
+  "refit_factor": 1.1,
+  "early_stop_days": 90,
+  "folds": [
+    {
+      "trained_before": "20260719",
+      "train_races": 352007,
+      "races": 4821,
+      "period": [
+        "20260719",
+        "20260819"
+      ],
+      "order": [
+        "1着",
+        "2連単",
+        "2連複"
+      ],
+      "logloss": [
+        1.1372044967505612,
+        2.4603666728376035,
+        1.9201223244083918
+      ],
+      "minus_final_market_2連単": {
+        "races": 4821,
+        "final_market_logloss": 2.481877407556414,
+        "mean": -0.02151073471880455,
+        "day_bootstrap_95ci": [
+          -0.03174276118623839,
+          -0.011448084453892367
+        ]
+      },
+      "minus_final_market_2連複": {
+        "races": 4821,
+        "final_market_logloss": 1.9630210299668795,
+        "mean": -0.0428987055584911,
+        "day_bootstrap_95ci": [
+          -0.05140183045945159,
+          -0.03457254377166339
+        ]
+      }
+    },
+    {
+      "trained_before": "20260820",
+      "train_races": 356828,
+      "races": 2993,
+      "period": [
+        "20260820",
+        "20260909"
+      ],
+      "order": [
+        "1着",
+        "2連単",
+        "2連複"
+      ],
+      "logloss": [
+        1.1433852407675047,
+        2.4754479277602006,
+        1.9345569015732234
+      ],
+      "minus_final_market_2連単": {
+        "races": 2993,
+        "final_market_logloss": 2.504004268611407,
+        "mean": -0.02855634085120845,
+        "day_bootstrap_95ci": [
+          -0.04506574949146263,
+          -0.011982958337246198
+        ]
+      },
+      "minus_final_market_2連複": {
+        "races": 2992,
+        "final_market_logloss": 1.9855311513268774,
+        "mean": -0.05254978322329983,
+        "day_bootstrap_95ci": [
+          -0.0647522457086918,
+          -0.040193247603928284
+        ]
+      }
+    }
+  ],
+  "train_races": 359821,
+  "iterations": {
+    "cl1": 965,
+    "flat1": 1018,
+    "cl2": 816
+  },
+  "model_sha256": "ffce31d892a31c0edb9282c9b3bbe639fd4a1583e6ca5bf7ba7a88c04874470a",
+  "oos_sha256": "3f7b9c68c7b8b3d797a5956bb4a0a126d51d37db21da3e5f9bacda30519a58bf",
+  "versions": {
+    "lightgbm": "4.7.0",
+    "polars": "1.42.1",
+    "numpy": "2.5.1"
+  },
+  "recorded_at": "2026-11-12T16:44:46.016359+00:00"
+}

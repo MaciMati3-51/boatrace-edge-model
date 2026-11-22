@@ -1,0 +1,40 @@
+{
+ "frozen_at": "2026-11-16T22:14:47.446526+00:00",
+ "sha256": {
+  "data/models/live_v4/model.pkl": "47403d5b421c4abdf8877de911d242a6793dbb24eaea28a7313e86f18ed1aff1",
+  "data/models/live_v4/market_coefficients.json": "6c67cd39f138d587e70d49be72c564411859b2126ddc94b068625e207016a1a9",
+  "src/live_v4.py": "958c56b090654e479fe4bd57dd0b3224b5ab3b02b6aa295577b7175ee8068702",
+  "src/v4_ratings.py": "db9d40c61cb0efc3c5d2101fd1b6b68f4ebd49c7ec93be67089ea6376e4b98b1",
+  "src/v4_meta.py": "4e72e004eb33d148ec80bf6f5a7a471c5fd99d055536488f319977774964dc4e",
+  "src/live_market_v4.py": "89bbc0eae1fd05b6c4af4f27e9db9d3df5a16fe7bf119dc82d578a70753b7e1a",
+  "src/evaluate_prospective_v4.py": "4f201c587a01cbd958b6bf701d72dea9c138ce5869e964f90c498c31a08fa44f",
+  "src/parse_b_meta.py": "e9bcfc06f21d2feb40825e426ffc3ec35c1ed4f045eeee957a8f6626bb6073e0",
+  "prereg/live_v4_design.md": "38eae7db6b70f7a16ede4c5cc25f94ea85b87f141c3eefdfe040432e3369b757",
+  "data/models/live_v4a/model.pkl": "6f4a519d059f7cc4a28a392c9dd9b5975a974ed76b055d6a83c3b7bf961c09d2",
+  "data/models/live_v4a/oos_predictions.parquet": "cfcdb74f4944c157da394ae60cbfb76c0ed8975e5a58b30df1ee5169eec93427",
+  "data/models/live_v4a/oos_20260910_20261112.parquet": "23569f572ef97047f5896b09cd60a3319d0eff3f2b8cdf5cd6c8fad106435e6f",
+  "data/models/live_v3/model.pkl": "ffce31d892a31c0edb9282c9b3bbe639fd4a1583e6ca5bf7ba7a88c04874470a",
+  "data/models/live_v3/market_coefficients.json": "3f43298c0ff1cd58cc4c9b73ab74fbdafc530b05186cf2839da73fab5d2406ea",
+  "data/models/live_v3/oos_predictions.parquet": "3f7b9c68c7b8b3d797a5956bb4a0a126d51d37db21da3e5f9bacda30519a58bf",
+  "src/live_v3.py": "3d13728390d39bbb8adb608db1d2bef0d301fc5d963b39fa7c23067a877dbe62",
+  "src/live_market_v3.py": "3530ba59311c67c1c547d7243e2e3f91ffd3060f11b1b4249d6b221e87b326a2",
+  "src/v3_features.py": "eb21b34fec07373a98d49dd0ab8155d5e0365e38c0dd70bc8dfbf85a54dd8169",
+  "src/evaluate_prospective_v3.py": "6baac100f20d1a64e46cb062f6e4a9d01827546bc21d04ad21aa4fbf9fa7b451",
+  "data/models/live_v2/model.pkl": "9c986b92445b5e741451736e892d1f39862f882ac47f3b99f5e4c3ae30e7bfe9",
+  "data/models/live_v2/market_coefficients.json": "3031d5cc01d840c24c91ab977aa68eda17f3afdfa92a51fad48607e609a7778f",
+  "src/live_v2.py": "95f6dd5d049833655022ce92ede486729c50f29e63d63e78fb52ddefce1bb656",
+  "src/live_market_v2.py": "d30cb0f77e395ba7d2f006cc4cc4e2f55ffbebea0245dd131f03f1ba893e6dab",
+  "src/evaluate_prospective_v2.py": "a1876c4cfe6ce34fe2ab491bc9052239f9c3615b44635855e0a982d054522aff",
+  "src/build_features.py": "1e85791b777651f5f61fceed7185da064a5fb2501ea8df31cff8c782ae35db18",
+  "src/predict_day.py": "f2b36535db3600d692f0ee2b69da0cbfeaf8bc2f6d78a2a37ab891c3a57e64f0",
+  "src/live_model.py": "415ca30dbaec85a19342d878402bf80d75d3562e772a638267facc5081f83e46",
+  "src/live_market.py": "6d0d2673a1dbf6c881cf01267a8264f11f88696c90e9f5bc62386d6ebdc736c8"
+ },
+ "local_data_at_freeze": {
+  "results": "20261112",
+  "entries": "20261112",
+  "race_meta_v4": "20261112",
+  "lzh_K_max": "k261112.lzh"
+ },
+ "note": "evaluate_prospective_v4.py がこのハッシュを照合する。"
+}

@@ -13,6 +13,9 @@ import lhafile
 ROOT = Path(__file__).resolve().parent.parent / "data" / "raw"
 SRC = ROOT / "lzh"
 DST = ROOT / "txt"
+# 本体は 2019-07 から。それより前の LZH（2016-07〜2019-06）は extract_lzh_ext.py が txt_ext/ へ展開する。
+# ここで txt/ に出すと parse_b_meta.py などが本体に混ぜてしまう（2026-11-22 に一度起きた）
+MAIN_START_YYMM = "201907"
 
 
 def main() -> None:
@@ -20,6 +23,8 @@ def main() -> None:
     for lzh in sorted(SRC.rglob("*.lzh")):
         # data/raw/lzh/K/202606/k260615.lzh → data/raw/txt/K/202606/K260615.TXT
         rel = lzh.relative_to(SRC)
+        if rel.parent.name < MAIN_START_YYMM:
+            continue
         outdir = DST / rel.parent
         outdir.mkdir(parents=True, exist_ok=True)
         try:

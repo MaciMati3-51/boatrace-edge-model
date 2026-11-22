@@ -1,0 +1,28 @@
+{
+  "training_start": "20190901",
+  "training_end_inclusive": "20261112",
+  "sealed_period_used_for": "training only (never evaluated)",
+  "blend_cl": 0.7,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "refit_factor": 1.1,
+  "early_stop_days": 90,
+  "folds": [],
+  "train_races": 368903,
+  "iterations": {
+    "cl1": 1003,
+    "flat1": 633,
+    "cl2": 1239,
+    "cl3": 614
+  },
+  "model_sha256": "47403d5b421c4abdf8877de911d242a6793dbb24eaea28a7313e86f18ed1aff1",
+  "versions": {
+    "lightgbm": "4.7.0",
+    "polars": "1.42.1",
+    "numpy": "2.5.1"
+  },
+  "recorded_at": "2026-11-16T22:13:12.338162+00:00"
+}

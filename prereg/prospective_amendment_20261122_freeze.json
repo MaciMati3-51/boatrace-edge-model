@@ -1,0 +1,12 @@
+{
+ "frozen_at": "2026-11-22T09:40:31.012303+00:00",
+ "sha256": {
+  "prereg/prospective_amendment_20261122.md": "cb5c7dbaf6c6d5a29c18df2a8dd6b9ec400ae7d26758719eaf0ac0c32097513e",
+  "src/evaluate_prospective_amended.py": "d18b79694c364a699ea954d779d28aad49aa0e2a8fa156a5ede7c0b33187f2c7",
+  "src/parse_openapi.py": "533f33d5db9802acb5ff93f70a8081feda0a4d150c41f0c6d1f8ba76fb83afd8",
+  "src/acquire_openapi.py": "8f94a3146676db172a6fe3b0d4164a59821707215b680e69872bc2e702996c49",
+  "src/v5_entry.py": "72f5bcb8da40463f87f7c79fc64af1e19c3ae4ae68b9ae3301fa354d7102a7e0",
+  "src/v5b_course.py": "91f309a9a64e02543d1d27ad0b85319d1c4dcbe5b8e10d830f18ceeb9f75aaad"
+ },
+ "note": "evaluate_prospective_amended.py がこのハッシュと live_v4_freeze.json・live_v5_freeze.json を照合する。20261113 以降のデータは取得済みだが、予測・評価は未実施の時点で固定。"
+}
